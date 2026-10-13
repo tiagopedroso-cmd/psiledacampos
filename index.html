@@ -174,6 +174,13 @@ document.querySelectorAll('a[href="#inicio"]').forEach(link=>link.addEventListen
     const quickCard=document.querySelector('.quick-card'), quickContinue=document.querySelector('.quick-continue'), quickBack=document.querySelector('.quick-back'), quickForm=document.querySelector('.quick-form');
     const toIsoDate=(year,month,day)=>`${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
     const friendlyDate=iso=>new Intl.DateTimeFormat('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(`${iso}T12:00:00-03:00`));
+    const bookingTimes=['17:00','18:00','19:00','20:00','21:00'];
+    const quickTimesContainer=document.querySelector('.quick-times'),calendarTimesContainer=document.querySelector('.times');
+    function renderTimeOptions(container,className){container.innerHTML=bookingTimes.map(time=>'<button class="'+className+'" type="button" data-time="'+time+'">'+time+'</button>').join('');}
+    renderTimeOptions(quickTimesContainer,'quick-option');
+    renderTimeOptions(calendarTimesContainer,'time');
+    quickTimesContainer.addEventListener('click',event=>{const button=event.target.closest('.quick-option');if(!button||button.disabled)return;quickTimesContainer.querySelectorAll('.quick-option').forEach(item=>item.classList.remove('selected'));button.classList.add('selected');});
+    calendarTimesContainer.addEventListener('click',event=>{const button=event.target.closest('.time');if(!button||button.disabled)return;calendarTimesContainer.querySelectorAll('.time').forEach(item=>item.classList.remove('selected'));button.classList.add('selected');selectedTime=button.dataset.time;update();});
     async function loadSlots(date,buttons){
       buttons.forEach(button=>{button.disabled=true;button.classList.remove('selected');});
       try{
@@ -189,7 +196,7 @@ document.querySelectorAll('a[href="#inicio"]').forEach(link=>link.addEventListen
     function renderQuickDays(){
       const labels=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'], dayButtons=[...document.querySelectorAll('.quick-days .quick-option')];
       const cursor=new Date();cursor.setHours(12,0,0,0);let index=0;
-      while(index<dayButtons.length){if(cursor.getDay()!==0){const date=toIsoDate(cursor.getFullYear(),cursor.getMonth(),cursor.getDate()),button=dayButtons[index];button.dataset.date=date;button.innerHTML=`<small>${labels[cursor.getDay()]}</small><b>${String(cursor.getDate()).padStart(2,'0')}</b>`;button.addEventListener('click',async()=>{dayButtons.forEach(item=>item.classList.remove('selected'));button.classList.add('selected');quickDate=date;await loadSlots(date,[...document.querySelectorAll('.quick-times .quick-option')]);});index++;}cursor.setDate(cursor.getDate()+1);}
+      while(index<dayButtons.length){if(cursor.getDay()!==0&&cursor.getDay()!==6){const date=toIsoDate(cursor.getFullYear(),cursor.getMonth(),cursor.getDate()),button=dayButtons[index];button.dataset.date=date;button.innerHTML=`<small>${labels[cursor.getDay()]}</small><b>${String(cursor.getDate()).padStart(2,'0')}</b>`;button.addEventListener('click',async()=>{dayButtons.forEach(item=>item.classList.remove('selected'));button.classList.add('selected');quickDate=date;await loadSlots(date,[...document.querySelectorAll('.quick-times .quick-option')]);});index++;}cursor.setDate(cursor.getDate()+1);}
       dayButtons[0].click();
     }
     renderQuickDays();
@@ -247,7 +254,7 @@ document.querySelectorAll('a[href="#inicio"]').forEach(link=>link.addEventListen
       const monthName=new Intl.DateTimeFormat('pt-BR',{month:'long',year:'numeric'}).format(actualMonth); const formattedMonth=monthName.charAt(0).toUpperCase()+monthName.slice(1);
       monthLabel.innerHTML=`<button class="month-nav" type="button" aria-label="Mês anterior">‹</button><span>${formattedMonth}</span><button class="month-nav" type="button" aria-label="Próximo mês">›</button>`;
       actualDaysGrid.innerHTML=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'].map(day=>`<span class="week-label">${day}</span>`).join('')+Array.from({length:firstDay},()=>'<span></span>').join('')+Array.from({length:totalDays},(_,index)=>`<button class="day" data-day="${index+1}" aria-label="Dia ${index+1}">${index+1}</button>`).join('');
-      actualDaysGrid.querySelectorAll('.day').forEach(day=>day.addEventListener('click',async()=>{actualDaysGrid.querySelectorAll('.day').forEach(item=>item.classList.remove('selected'));day.classList.add('selected');selectedDay=day.dataset.day;await loadSlots(toIsoDate(year,month,Number(selectedDay)),[...document.querySelectorAll('.times .time')]);update();}));
+      actualDaysGrid.querySelectorAll('.day').forEach(day=>{const weekday=new Date(year,month,Number(day.dataset.day)).getDay();if(weekday===0||weekday===6){day.disabled=true;day.setAttribute('aria-label','Dia indisponível');}day.addEventListener('click',async()=>{actualDaysGrid.querySelectorAll('.day').forEach(item=>item.classList.remove('selected'));day.classList.add('selected');selectedDay=day.dataset.day;await loadSlots(toIsoDate(year,month,Number(selectedDay)),[...document.querySelectorAll('.times .time')]);update();});});
       monthLabel.querySelectorAll('.month-nav')[0].addEventListener('click',()=>{actualMonth=new Date(year,month-1,1);selectedDay='';renderActualMonth();});
       monthLabel.querySelectorAll('.month-nav')[1].addEventListener('click',()=>{actualMonth=new Date(year,month+1,1);selectedDay='';renderActualMonth();});
     }
