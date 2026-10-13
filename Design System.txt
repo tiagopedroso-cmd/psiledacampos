@@ -1,0 +1,411 @@
+# Design System — Leda Campos
+
+Versão 1.0 • Landing Page de Psicologia e Psicanálise
+
+Com base nas referências visuais, a identidade da Leda segue uma direção editorial, acolhedora, sofisticada e minimalista. A combinação de tons creme, verde-oliva, fotografias naturais e tipografia serifada transmite tranquilidade sem perder autoridade profissional.
+
+O objetivo do Design System será criar uma experiência que conduza o visitante por quatro etapas:
+
+Conhecer a Leda → Sentir confiança → Compreender o atendimento → Agendar a consulta.
+
+O calendário integrado será o principal ponto de conversão. O WhatsApp terá função secundária, reservado para dúvidas.
+
+## 1. Paleta de cores
+
+Os códigos abaixo são aproximações visuais das imagens de referência, organizadas para manter consistência, legibilidade e contraste na implementação.
+
+Principal
+
+Verde-oliva profundo
+
+\#34452C
+
+Botões primários, seções de destaque e elementos de autoridade
+
+Verde-sálvia
+
+\#78856B
+
+Detalhes suaves, ícones e elementos decorativos
+
+Creme
+
+\#F7F3EC
+
+Fundo predominante da landing page
+
+Secundária
+
+Marfim
+
+\#FFFCF8
+
+Cards, formulários e superfícies elevadas
+
+Areia
+
+\#EAE0D2
+
+Seções alternadas, divisores e caixas de informação
+
+Taupe
+
+\#9B826B
+
+Microtítulos, ícones e pequenos detalhes editoriais
+
+Suporte
+
+Grafite quente
+
+\#292A26
+
+Títulos e texto de alto contraste
+
+Cinza amarronzado
+
+\#66665E
+
+Descrições e texto secundário
+
+Borda suave
+
+\#DED8CE
+
+Bordas de inputs, cards e separadores
+
+Verde-claro
+
+\#E9EEE4
+
+Seleção de datas e mensagens positivas
+
+### Proporção visual recomendada
+
+60% creme20% marfim15% verde5% areia
+
+O verde-oliva deve ser reservado principalmente para botões e seções de destaque, evitando que a página fique visualmente pesada. O fundo creme predomina, com áreas brancas para dar respiro.
+
+## 2. Tipografia
+
+A referência utiliza um contraste claro entre títulos serifados elegantes e textos sem serifa, modernos e legíveis.
+
+FONTE DE TÍTULOS — CORMORANT GARAMOND
+
+# Sua história merece ser compreendida.
+
+Alternativas: Playfair Display, DM Serif Display, Libre Baskerville.
+
+FONTE DE CORPO — DM SANS
+
+Um espaço de escuta acolhedora, ética e respeitosa para compreender suas emoções e construir novas possibilidades.
+
+Alternativas: Inter, Lato, Manrope.
+
+MICROTÍTULOS — DM SANS MEDIUM
+
+ACOLHIMENTO • ESCUTA • AUTOCONHECIMENTO
+
+### Hierarquia tipográfica
+
+| Elemento         | Desktop  | Mobile   | Peso    |
+| ---------------- | -------- | -------- | ------- |
+| H1 — Hero        | 64–76 px | 40–46 px | 400     |
+| H2 — Seções      | 44–52 px | 32–38 px | 400     |
+| H3 — Cards       | 25–30 px | 23–26 px | 400–500 |
+| H4 — Subtítulos  | 20–22 px | 18–20 px | 500     |
+| Corpo principal  | 17–18 px | 16 px    | 400     |
+| Corpo secundário | 15–16 px | 14–15 px | 400     |
+| Microtítulos     | 11–12 px | 11 px    | 600     |
+| Botões           | 14–15 px | 14–15 px | 600     |
+
+Regras: títulos com line-height entre 1.05 e 1.15; corpo entre 1.55 e 1.7. Microtítulos em caixa alta, com espaçamento entre letras de aproximadamente 0.14em.
+
+Não usar fontes decorativas em textos longos. A caligrafia vista no Hero deve ficar restrita a um detalhe visual, sem transmitir informação essencial.
+
+## 3. Componentes visuais
+
+### 3.1 Botões e chamadas para ação
+
+Os botões devem ser facilmente identificáveis, com alto contraste e textos objetivos. Evitar excesso de estilos concorrentes.
+
+PRIMÁRIO — CONVERSÃO
+
+Agendar consulta&#x20;
+
+Verde profundo, texto branco, altura de 48–52 px, raio de 10 px.
+
+SECUNDÁRIO — INFORMAÇÕES
+
+Tirar uma dúvida
+
+Fundo transparente, borda taupe, texto verde-oliva.
+
+TERCIÁRIO — NAVEGAÇÃO
+
+Conheça minha abordagem
+
+Ideal para links entre seções, sem competir com o agendamento.
+
+Estados interativos: no hover, escurecer o verde para `#283622`, sem movimentações exageradas. No foco por teclado, usar contorno visível de 2 px. No estado desabilitado, manter legibilidade e indicar que a ação está indisponível.
+
+### 3.2 Cards
+
+## Escuta acolhedora
+
+Um espaço para falar sobre suas emoções com respeito à sua história.
+
+## Autoconhecimento
+
+Um processo de compreensão dos sentimentos e experiências.
+
+Regras dos cards: fundo marfim, borda de 1 px, raio de 14–16 px, padding de 24–32 px e sombras discretas. Usar ícones lineares com traço de aproximadamente 1.5 px.
+
+Para a seção de formação da Leda, preferir uma composição editorial com foto, texto e credenciais, em vez de vários cards genéricos.
+
+### 3.3 Inputs e formulários
+
+Nome completo
+
+E-mail
+
+Telefone para confirmação
+
+Exemplo visual dos campos de confirmação de agendamento. Não envia nem armazena informações.
+
+Os inputs devem ter altura mínima de 48 px, raio de 10 px, fundo claro e borda `#DED8CE`. O foco deve destacar a borda verde-oliva.
+
+No calendário, solicitar somente informações necessárias à reserva. Evitar formulários longos e perguntas clínicas antes da primeira consulta.
+
+## 4. Calendário — Componente prioritário
+
+O calendário é o elemento funcional mais importante da landing page. Por isso, deve receber tratamento visual próprio e aparecer logo após a apresentação inicial, como nas referências.
+
+## Escolha o dia e horário
+
+Selecione uma data para consultar os horários.
+
+Novembro de 2026
+
+D
+
+S
+
+T
+
+Q
+
+Q
+
+S
+
+S
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+Horários disponíveis
+
+09:00
+
+10:00
+
+11:00
+
+14:00
+
+15:00
+
+16:00
+
+Continuar&#x20;
+
+Protótipo visual interativo para testar a seleção. Datas e horários são fictícios e não estão conectados à agenda real da Leda.
+
+### Requisitos de usabilidade do calendário
+
+- Disponibilidade real: sincronizar com a Google Agenda e impedir reservas conflitantes.
+- Seleção clara: dia e horário selecionados em verde, indisponíveis desabilitados.
+- Mobile first: datas e horários precisam ser fáceis de tocar, sem zoom.
+- Confirmação: exibir resumo com data, horário, modalidade e orientações.
+- Privacidade: coletar apenas os dados necessários e informar seu uso.
+- Feedback: apresentar mensagens claras em caso de indisponibilidade, erro ou confirmação.
+
+O calendário deve ocupar uma área de destaque, com fundo marfim e sombra suave, para parecer parte nativa da landing page — não um widget de terceiros visualmente desconectado.
+
+## 5. Estética e regras de layout
+
+| Elemento                    | Padrão                                |
+| --------------------------- | ------------------------------------- |
+| Botões e inputs             | 10 px                                 |
+| Cards                       | 14–16 px                              |
+| Containers destacados       | 20–24 px                              |
+| Fotos                       | 12–20 px ou recorte orgânico discreto |
+| Sombras                     | `0 8px 30px rgba(41,42,38,0.07)`      |
+| Bordas                      | 1 px em `#DED8CE`                     |
+| Container desktop           | Máximo de 1200 px                     |
+| Padding lateral desktop     | 40–64 px                              |
+| Padding lateral mobile      | 20–24 px                              |
+| Espaço entre seções desktop | 88–112 px                             |
+| Espaço entre seções mobile  | 56–72 px                              |
+| Gap entre cards             | 20–24 px                              |
+
+### Direção fotográfica
+
+[Psicóloga Carolina Castro | Terapia Online para Mulheres](https://images.openai.com/static-rsc-4/6XF9l4sInncVt_dK4mRZ32xdriMkBfHrWaibIX1NdxnbTup-nZUKGQYm5tFSc_BxMaVQuLxBuF24agZQSEZ3a3qxpkbZbYkD3F11oWw_-ws86_cjC726j-ilhyJDdgQ7UgTznYK5daFF3YRL8RfykVPUYETWEei4MmwLesyVfq0?purpose=inline)
+
+Ambiente acolhedor, iluminação suave, tons naturais e composição editorial.
+
+[Psychische Gesundheit & Therapie: Kosten und Wege 2026](https://images.openai.com/static-rsc-4/eGodonpCAvgZqTKgROwjJa4cmGTg7_JoC7A2DD6Zztn_oO38J7dBmkeT6Y_BSvOmxIhXNZ1aoe5esl7wMQ4Hw_v1SByzoTsmZ6E8tyghjN_0gGIBJkFQexuAOANkzEhhdGaPilqDNqwgh_yMneZA2H8iU2A_jDUKi9-sw1q_kDg?purpose=inline)
+
+Interiores tranquilos, materiais orgânicos e detalhes discretos.
+
+As fotografias reais da Leda devem ser prioritárias, especialmente no Hero e na seção “Sobre”. Evitar imagens artificiais de pacientes, expressões exageradas de sofrimento e fotografias de banco de imagens que possam parecer depoimentos reais.
+
+## 6. Responsividade
+
+Desktop — a partir de 1024 px
+
+Hero em duas colunas, com texto à esquerda e foto da Leda à direita. Calendário amplo, acompanhado de texto explicativo. Navegação horizontal com CTA no canto superior direito.
+
+Tablet — 768 a 1023 px
+
+Reduzir títulos e espaçamentos. Cards em duas colunas. Calendário centralizado, ocupando a largura disponível.
+
+Mobile — até 767 px
+
+Hero com mensagem curta, foto da Leda e CTA visível rapidamente. Cards em uma coluna. Calendário responsivo e botão fixo inferior “Agendar consulta”, sem ocultar campos ou horários.
+
+## 7. Tokens CSS iniciais
+
+Estes tokens podem ser utilizados posteriormente em CSS, Tailwind ou Next.js.
+
+```
+
+:root {
+  /* Brand */
+  --color-primary: #34452C;
+  --color-primary-hover: #283622;
+  --color-sage: #78856B;
+  --color-taupe: #9B826B;
+
+  /* Backgrounds */
+  --color-background: #F7F3EC;
+  --color-surface: #FFFCF8;
+  --color-surface-alt: #EAE0D2;
+  --color-success-soft: #E9EEE4;
+
+  /* Text */
+  --color-heading: #292A26;
+  --color-text: #66665E;
+  --color-border: #DED8CE;
+
+  /* Typography */
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+
+  /* Radii */
+  --radius-input: 10px;
+  --radius-button: 10px;
+  --radius-card: 16px;
+  --radius-section: 24px;
+
+  /* Shadows */
+  --shadow-card: 0 8px 30px rgba(41, 42, 38, 0.07);
+  --shadow-floating: 0 16px 48px rgba(41, 42, 38, 0.10);
+
+  /* Layout */
+  --container-width: 1200px;
+  --section-space: 96px;
+
+  /* Motion */
+  --transition-default: 180ms ease;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --section-space: 64px;
+  }
+}
+
+```
+
+## 8. Aplicação do Design System na Landing Page
+
+| Seção         | Tratamento visual                                       | Prioridade      |
+| ------------- | ------------------------------------------------------- | --------------- |
+| Hero          | Foto grande da Leda, fundo creme e título editorial     | Confiança + CTA |
+| Credenciais   | Faixa horizontal de ícones e informações profissionais  | Autoridade      |
+| Agendamento   | Calendário em card elevado, visível no início da página | Conversão       |
+| Sobre Leda    | Foto real, biografia e formação com destaque            | Diferenciação   |
+| Identificação | Poucos cards com situações de busca por terapia         | Relevância      |
+| Psicanálise   | Bloco verde-oliva, imagem ambiental e texto curto       | Método          |
+| FAQ           | Accordion minimalista com divisores finos               | Reduzir dúvidas |
+| CTA final     | Fundo areia, mensagem acolhedora e botão verde          | Conversão final |
+
+Ajuste importante em relação à referência: eu não utilizaria o carrossel de depoimentos de pacientes como elemento de autoridade. Prefiro valorizar a formação, a experiência, a apresentação pessoal e a abordagem profissional da Leda, evitando riscos éticos na publicidade psicológica.
+
+## Resultado esperado
+
+O Design System deve fazer a página parecer um consultório digital premium, humano e confiável, não um catálogo de serviços.
+
+A principal decisão de design será dar à Leda o protagonismo visual e manter o agendamento acessível sem tornar a experiência excessivamente comercial.
+
+A combinação creme + verde-oliva + serifada editorial + fotos reais + calendário integrado será a base para o desenvolvimento.
