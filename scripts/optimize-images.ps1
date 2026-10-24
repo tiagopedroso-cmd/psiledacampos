@@ -53,7 +53,7 @@ function Save-OptimizedPng {
 
 New-Item -ItemType Directory -Force -Path (Join-Path $PSScriptRoot '..\\assets') | Out-Null
 Save-OptimizedJpeg 'Plano de Fundo Hero.png' 'assets/hero-background.jpg' 1672 80
-Save-OptimizedJpeg 'Mulher Sênior Elegante em Poltrona Moderna.png' 'assets/hero-portrait.jpg' 980 82
+Save-OptimizedPng 'Mulher Sênior Elegante em Poltrona Moderna.png' 'assets/hero-portrait.png' 980
 Save-OptimizedJpeg 'Retrato acolhedor de mulher madura na biblioteca.png' 'assets/about-portrait.jpg' 900 82
 Save-OptimizedJpeg 'Retrato Profissional na Biblioteca Aconchegante.png' 'assets/approach-portrait.jpg' 900 82
 Save-OptimizedJpeg 'Conversa Acolhedora na Sala de Terapia.png' 'assets/online-therapy.jpg' 960 82
