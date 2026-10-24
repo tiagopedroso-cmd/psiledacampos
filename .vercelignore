@@ -1,0 +1,13 @@
+# Credential files must be configured as Vercel environment variables, never deployed.
+ADMIN_SECRET.txt
+client_secret_*.json
+.env
+.env.*
+
+# Local reference material that is not part of the production site.
+COPY.txt
+Design System.txt
+CONFIGURAR-AGENDA.md
+Guia - Conectar Agenda Google - Leda.png
+Passo a Passo conexão agenda LEDA
+index.v*.html
